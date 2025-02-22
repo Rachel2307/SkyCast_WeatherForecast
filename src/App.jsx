@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import './App.css'
-import search from './assets/icons/search.svg'
-// import logo from './assets/logo/SkyCastLogo'
+import search from './assets/icons/search.svg';
 import { useStateContext } from './Context'
 import { BackgroundLayout, WeatherCard, MiniCard } from './Components'
 
@@ -17,19 +16,22 @@ function App() {
   }
 
   return (
+    // header --SkyCast--
     <div className='w-full h-screen text-white px-8'>
       <nav className='w-full p-3 flex justify-between items-center'>
-        <h1 className='font-bold tracking-wide text-3xl'>SkyCast</h1>
-        <div className='bg-white w-[25rem] overflow-hidden shadow-2xl rounded flex items-center p-2 gap-2'>
+        <h1 className='font-bold tracking-wide text-3xl'>SkyCast</h1>    
+      </nav>
+      
+      <div className="flex justify-center items-center">
+        <div className='bg-white w-[30rem] overflow-hidden shadow-4xl rounded flex items-center p-2 gap-2 '>
           <img src={search} alt="search" className='w-[1.5rem] h-[1.5rem]' />
           <input onKeyUp={(e) => {
             if (e.key === 'Enter') {
               submitCity()
             }
-          }} type="text" placeholder="Find your city's weather forecast" className='focus:outline-none w-full text-[#212121] text-lg' value={input} onChange={e => setInput(e.target.value)} />
-        </div>      
-      </nav>
-      <h2 className='font-bold tracking-wide text-3xl text-center text-black'> Welcome to SkyCast! </h2>
+          }} type="text" placeholder="Find your city's weather forecast" className='focus:outline-none w-full text-[black] text-lg' value={input} onChange={e => setInput(e.target.value)} />
+        </div>    
+      </div>
       <BackgroundLayout></BackgroundLayout>
       <main className='w-full flex flex-wrap gap-8 py-4 px-[10%] items-center justify-center'>
         <WeatherCard
