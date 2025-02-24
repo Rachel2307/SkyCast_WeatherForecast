@@ -33,12 +33,11 @@ export const StateContextProvider = ({ children }) => {
             const thisData = Object.values(response.data.locations)[0]
             setLocation(thisData.address)
             setValues(thisData.values)
-            setWeather(thisData.values[0])
-            console.log(response)
+            setWeather(thisData.values[0])     
         } catch (e) { 
             console.error(e);
             // if the api throws error.
-            alert('This place does not exist')
+            //alert('This place does not exist')
         }
     }
 
